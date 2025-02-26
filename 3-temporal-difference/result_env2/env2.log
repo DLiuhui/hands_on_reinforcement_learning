@@ -1,0 +1,15 @@
+Sarsa 算法最终收敛得到的策略为 
+ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ovoo 
+^ooo ^ooo ^ooo ^ooo ^ooo ^ooo ^ooo ^ooo oo<o **** ooo> ovoo 
+^ooo **** **** ^ooo ovoo **** **** ^ooo ovoo **** ooo> ovoo 
+^ooo ooo> oo<o ooo> ooo> ooo> ovoo ^ooo oo<o **** ooo> EEEE 
+NStepSarsa 算法最终收敛得到的策略为 
+ooo> ooo> ooo> ovoo ^ooo ooo> oo<o ooo> oo<o ooo> ooo> ovoo 
+^ooo oo<o ooo> ooo> ^ooo ^ooo ooo> ^ooo ovoo **** ooo> ovoo 
+ovoo **** **** ^ooo ^ooo **** **** ^ooo oo<o **** ooo> ovoo 
+oo<o ooo> ooo> ^ooo ovoo oo<o ooo> ooo> ^ooo **** ov<> EEEE 
+QLearning 算法最终收敛得到的策略为 
+ooo> oo<o ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ovoo ovoo 
+ooo> ooo> ooo> ooo> ^ooo ooo> ooo> ^ooo ^ooo **** ovoo ovoo 
+^ooo **** **** ovoo ovoo **** **** ooo> ^ooo **** ovo> ovoo 
+ooo> ooo> ooo> ooo> ^ooo ooo> ooo> ^ooo ^ooo **** ooo> EEEE 
