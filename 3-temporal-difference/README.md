@@ -19,6 +19,7 @@
   * Sarsa 偏保守，生成的策略会尽可能远离悬崖
   * Q-Learning 偏激进，生成的策略会尽量达到目标，会贴着悬崖走
   * env1 悬崖周围可行区域较大，Sarsa类表现较好
-  * env2 设置了窄路环境，Sarsa类方法给出的策略存在犹豫不决(frozen bug!)，Q-Learning找到了相对更优的到达终点的路线
+  * env2 设置了窄路环境，Q-Learning在应对窄路上表现更好，找到了尽快通过窄路的策略
+  * 总体而言 Sarsa 获得的期望回报是高于 Q-learning 的，这是因为在训练过程中智能体采取基于当前 Q(s,a) 函数的 e-贪婪策略 来平衡探索与利用，Q-learning 算法由于沿着悬崖边走，会以一定概率探索“掉入悬崖”这一动作，而 Sarsa 相对保守的路线使智能体几乎不可能掉入悬崖。
 * 收敛性证明 (实在不会证了)
   * [Convergence of Q-learning: a simple proof](http://users.isr.ist.utl.pt/~mtjspaan/readingGroup/ProofQlearning.pdf)
