@@ -1,0 +1,18 @@
+Q-planning次数为：0
+DynaQ 算法 n-planning = 0 最终收敛得到的策略为 
+^ooo oo<o ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ovoo ovoo 
+ooo> ^ooo ooo> ooo> ooo> ooo> ^ooo ooo> ^ooo **** ooo> ovoo 
+ovoo **** **** ooo> ^ooo **** **** ooo> ^ooo **** ooo> ov<o 
+^ooo ooo> ooo> ovoo ^ooo oo<o ooo> ooo> ^ooo **** ooo> EEEE 
+Q-planning次数为：2
+DynaQ 算法 n-planning = 2 最终收敛得到的策略为 
+ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ovoo 
+ooo> ^ooo ooo> ooo> ^ooo ooo> ooo> ooo> ^ooo **** ooo> ovoo 
+^ooo **** **** ooo> ^ooo **** **** ^ooo ^ooo **** ovo> ov<> 
+ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ^ooo **** ooo> EEEE 
+Q-planning次数为：20
+DynaQ 算法 n-planning = 20 最终收敛得到的策略为 
+ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ooo> ovo> ovoo 
+^oo> ^oo> ^oo> ^oo> ^oo> ^oo> ^oo> ^oo> ^ooo **** ovo> ovoo 
+^ooo **** **** ^oo> ^ooo **** **** ^oo> ^ooo **** ovo> ov<> 
+^oo> ooo> ooo> ^oo> ^oo> ooo> ooo> ^oo> ^ooo **** ooo> EEEE 
