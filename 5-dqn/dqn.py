@@ -7,6 +7,7 @@ from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
+#from pyvirtualdisplay import Display
 
 class Qnet(torch.nn.Module):
     ''' 只有一层隐藏层的Q网络 '''
@@ -81,6 +82,10 @@ class DQN:
         self.count += 1
 
 def main():
+    # 启动虚拟显示
+    #display = Display(visible=0, size=(1400, 900))
+    #display.start()
+
     lr = 2e-3
     num_episodes = 500
     hidden_dim = 128
@@ -97,7 +102,7 @@ def main():
     env = gym.make(env_name)
     random.seed(0)
     np.random.seed(0)
-    env.seed(0)
+    env.reset(seed=0)
     torch.manual_seed(0)
     replay_buffer = ReplayBuffer(buffer_size)
     state_dim = env.observation_space.shape[0]
@@ -110,11 +115,12 @@ def main():
         with tqdm(total=int(num_episodes / 10), desc='Iteration %d' % i) as pbar:
             for i_episode in range(int(num_episodes / 10)):
                 episode_return = 0
-                state = env.reset()
+                state, _ = env.reset()
                 done = False
                 while not done:
                     action = agent.take_action(state)
-                    next_state, reward, done, _ = env.step(action)
+                    next_state, reward, terminated, truncated, _ = env.step(action)
+                    done = terminated or truncated 
                     replay_buffer.add(state, action, reward, next_state, done)
                     state = next_state
                     episode_return += reward
@@ -152,6 +158,11 @@ def main():
     plt.ylabel('Returns')
     plt.title('DQN on {}'.format(env_name))
     plt.savefig("dqn-value-moving-avg.png")
+
+    # 关闭环境
+    env.close()
+    # 停止虚拟显示
+    #display.stop()
 
 if __name__ == "__main__":
     main()
