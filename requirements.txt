@@ -1,0 +1,6 @@
+python==3.11.10
+gymnasium==1.1.0
+pygame==2.6.1
+torch==2.6.0+cu118
+torchaudio==2.6.0+cu118
+torchvision==0.21.0+cu118

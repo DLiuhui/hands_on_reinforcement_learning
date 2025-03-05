@@ -1,13 +1,12 @@
 from rl_utils import ReplayBuffer, moving_average
 import random
-import gym
+import gymnasium as gym
 import numpy as np
 import collections
 from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
-#from pyvirtualdisplay import Display
 
 class Qnet(torch.nn.Module):
     ''' 只有一层隐藏层的Q网络 '''
@@ -82,10 +81,6 @@ class DQN:
         self.count += 1
 
 def main():
-    # 启动虚拟显示
-    #display = Display(visible=0, size=(1400, 900))
-    #display.start()
-
     lr = 2e-3
     num_episodes = 500
     hidden_dim = 128
@@ -99,7 +94,7 @@ def main():
              torch.device("cpu")
 
     env_name = 'CartPole-v1'
-    env = gym.make(env_name)
+    env = gym.make(env_name, render_mode="human")
     random.seed(0)
     np.random.seed(0)
     env.reset(seed=0)
@@ -161,8 +156,6 @@ def main():
 
     # 关闭环境
     env.close()
-    # 停止虚拟显示
-    #display.stop()
 
 if __name__ == "__main__":
     main()
