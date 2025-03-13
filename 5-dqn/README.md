@@ -12,7 +12,7 @@
   * $Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha[r_t + \gamma \max_{a} Q(s_{t+1}, a) - Q(s_t, a_t)]$
 * 显然优化目标是要最小化 $r_t + \gamma \max_{a} Q(s_{t+1}, a)$ 和 $Q(s_t, a_t)$ 的差值
 * 这个差值可以用 MSE Loss 来表示
-* $\omega^{*} = \arg\max_{\omega}\frac{1}{2N}\sum^{N}_{i=1}[Q_{\omega}(s_i, a_i) - (r_i + \gamma \max_{a'} Q_{\omega}(s_{i}', a'))]^2$
+* $\omega^{*} = \arg\max_{\omega}\frac{1}{2N}\sum^{N}_{i=1}[Q_{\omega}(s_i, a_i) - (r_i + \gamma \max_{a'} Q_{\omega}(s'_{i}, a'))]^2$
 * 使用神经网络来计算Q(s,a), 上述MSE Loss即为网络的损失函数
 
 ## 实现细节

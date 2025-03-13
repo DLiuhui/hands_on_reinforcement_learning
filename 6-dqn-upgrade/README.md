@@ -38,7 +38,7 @@ $Q_{\phi,\alpha,\beta}(s,a)  = V_{\phi,\alpha}(s) + A_{\phi,\beta}(s,a)-\max_{a'
 
 * 或者
 
-$Q_{\phi,\alpha,\beta}(s,a)  = V_{\phi,\alpha}(s) + A_{\phi,\beta}(s,a)-\frac{1}{|\Alpha|}\sum_{a'}A_{\phi,\beta}(s,a')$
+$Q_{\phi,\alpha,\beta}(s,a)  = V_{\phi,\alpha}(s) + A_{\phi,\beta}(s,a)-\frac{1}{|action|}\sum_{a'}A_{\phi,\beta}(s,a')$
 
 ```python
 class VAnet(torch.nn.Module):
