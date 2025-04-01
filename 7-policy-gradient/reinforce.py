@@ -61,6 +61,7 @@ class REINFORCE:
 
             log_prob = torch.log(self.policy_net(state).gather(1, action))
             G = self.gamma * G + reward
+            # 此处取策略回报的负数作为损失函数, 梯度下降最小化损失函数, 就是在最大化策略回报函数
             loss = -log_prob * G  # 计算每一步的损失函数
             loss.backward()  # 反传计算梯度
         self.optimizer.step()  # 梯度下降
