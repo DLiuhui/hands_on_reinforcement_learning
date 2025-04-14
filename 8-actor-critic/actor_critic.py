@@ -54,6 +54,8 @@ class ActorCritic:
         next_stats = torch.tensor(transition_dict['next_states'], dtype=torch.float).to(self.device)
         dones = torch.tensor(transition_dict['dones'], dtype=torch.float).view(-1, 1).to(self.device)
 
+        # 不同于上一节 REINFORCE 算法采用策略回报, 需要迭代的计算整个序列的策略回报
+        # 此处采用的是 时序差分误差, 可以独立的计算序列里每一步的时序差分误差
         td_target = rewards + self.gamma * self.critic(next_stats) * (1 - dones)
         td_loss = td_target - self.critic(states)  # critc 时序差分误差
         log_probs = torch.log(self.actor(states).gather(1, actions))
@@ -66,7 +68,6 @@ class ActorCritic:
         critic_loss.backward()
         self.actor_optimizer.step()
         self.critic_optimizer.step()
-
 
 def main():
     actor_lr = 1e-3
@@ -93,14 +94,14 @@ def main():
     plt.xlabel('Episodes')
     plt.ylabel('Returns')
     plt.title('Actor-Critic on {}'.format(env_name))
-    plt.show()
+    plt.savefig("actor-critic-returns.png")
 
     mv_return = rl_utils.moving_average(return_list, 9)
     plt.plot(episodes_list, mv_return)
     plt.xlabel('Episodes')
     plt.ylabel('Returns')
     plt.title('Actor-Critic on {}'.format(env_name))
-    plt.show()
+    plt.savefig("actor-critic-returns-moving-avg.png")
 
 if __name__ == '__main__':
     main()

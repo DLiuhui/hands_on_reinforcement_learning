@@ -33,11 +33,12 @@ def train_on_policy_agent(env, agent, num_episodes):
         with tqdm(total=int(num_episodes/10), desc='Iteration %d' % i) as pbar:
             for i_episode in range(int(num_episodes/10)):
                 episode_return = 0
-                transition_dict = {'states': [], 'actions': [], 'next_states': [], 'rewards': [], 'dones': []}
-                state = env.reset()
+                transition_dict = {
+                    'states': [], 'actions': [], 'next_states': [],
+                    'rewards': [], 'dones': []}
+                state, _ = env.reset()
                 done = False
                 while not done:
-                    print(state)
                     action = agent.take_action(state)
                     next_state, reward, terminated, truncated, _ = env.step(action)
                     done = terminated or truncated
