@@ -12,9 +12,7 @@
 * 梯度的更新优化策略, 让策略采样获得更高Q的动作
 ## REINFORCE 算法
 * 基于策略梯度的范式, 采用蒙特卡洛采样法进行采样, 式子中T是与环境交互的最大步数
-
-$\nabla_{\theta} J(\theta)=E_{\pi_{\theta}}[\sum^{T}_{t=0}(\sum^{T}_{t'=t}\gamma^{t'-t}r_{t'})\nabla_{\theta}\log{\pi_{\theta}(a_t|s_t)}]$
-
+* $\nabla_{\theta} J(\theta)=E_{\pi_{\theta}}[\sum^{T}_{t=0}(\sum^{T}_{t'=t}\gamma^{t'-t}r_{t'})\nabla_{\theta}\log{\pi_{\theta}(a_t|s_t)}]$
 * 获得采样轨迹 -> 计算每个时刻t的回报 -> 更新网络参数
 
 ```python
