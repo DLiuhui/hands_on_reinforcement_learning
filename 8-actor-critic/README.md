@@ -3,6 +3,7 @@
 * [Actor-Critic 演员评论家](https://hrl.boyuai.com/chapter/2/actor-critic%E7%AE%97%E6%B3%95/)
 
 ## actor-critic 原理
+* [Actor-Critic Algorithms](https://proceedings.neurips.cc/paper/1999/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf) 2000
 * actor-critic 同时引入价值模型和策略模型, actor对应策略模型 policy-based, critic对应价值模型 value-based
 * 也是基于 actor-critic 这种强化学习范式, 延伸出了很多前沿的强化学习范式, 比如 TRPO PPO 甚至是 GPRO 等
 * 对于策略梯度, $\nabla_{\theta} J(\theta)=E_{\pi_{\theta}}[\sum_{t=0}^{T}(\sum_{t'=t}^{T}\gamma^{t'-t}r_{t'})\nabla_{\theta}\log{\pi_{\theta}(a_t|s_t)}]$
@@ -91,4 +92,4 @@ class ActorCritic:
 ![a2c-zhihu](img/a2c-zhihu.png)
 
 - A3C 中各个 agent 都是异步独立更新, 每个 agent 使用不同的策略, 可能会导致 global policy 的累计更新效果并不是最优（optimal）的, 异步更新反而是A3C的劣势了; 而 A2C 通过同步更新解决了这种不一致(inconsistency)的问题, 从而潜在的加快收敛
-- 总的来说, 在2016年的时间节点, A2C和A3C都是state-of-art的范式了, 下一个时代准备开启.
+- 总的来说, 在2016年的时间节点, A2C/A3C 属于是前沿的范式了. 2015年TRPO出现, 2016 GAE的登场, 以及随后的PPO, 也将引领RL新的范式
