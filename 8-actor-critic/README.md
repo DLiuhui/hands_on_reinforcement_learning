@@ -77,7 +77,7 @@ class ActorCritic:
 ![policy-gradient-moving-avg](../7-policy-gradient/reinforce-returns-moving-avg.png)
 * actor-critic
 ![actor-critic-moving-avg](actor-critic-returns-moving-avg.png)
-* 相比之下actor-critic训练过程中的returns会更加稳定, 抖动(方差)幅度明显改善, 说明方差减小有效
+* 相比之下actor-critic训练过程中的returns会更加稳定, 抖动(方差)幅度有所改善, 说明方差减小有效
 
 # A2C vs A3C
 - 提出A3C算法的paper [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/pdf/1602.01783) 2016

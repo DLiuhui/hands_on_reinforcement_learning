@@ -28,9 +28,9 @@ class ValueNet(torch.nn.Module):
 class ActorCritic:
     def __init__(self, state_dim, hidden_dim, action_dim, actor_lr, critic_lr, gamma, device):
         # 策略网络
-        self.actor = PolicyNet(state_dim, hidden_dim, action_dim)
+        self.actor = PolicyNet(state_dim, hidden_dim, action_dim).to(device)
         # 价值网络
-        self.critic = ValueNet(state_dim, hidden_dim)
+        self.critic = ValueNet(state_dim, hidden_dim).to(device)
         # 策略网络优化器
         self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=actor_lr)
         # 价值网络优化器
